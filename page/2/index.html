@@ -273,6 +273,171 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/命令操作符-小记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jksen zhangxing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半岛铁盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/19/命令操作符-小记/" itemprop="url">
+                  命令操作符-小记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T20:35:47+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/19/命令操作符-小记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/19/命令操作符-小记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/19/命令操作符-小记/" class="leancloud_visitors" data-flag-title="命令操作符-小记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>cd 路径   ——进入某个文件</p>
+<p>cd ..        ——-跳出本文件</p>
+<p>webpack 安装命令<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//全局安装</span><br><span class="line">npm install -g webpack</span><br><span class="line"></span><br><span class="line">方式<span class="number">1</span>：</span><br><span class="line">//安装到你的项目目录</span><br><span class="line">npm install --save-dev webpack</span><br><span class="line">//npm  init           安装依赖包   package.json</span><br><span class="line"></span><br><span class="line">方式<span class="number">2</span>：</span><br><span class="line">//npm init -y         使用默认设置</span><br><span class="line">npm i -D  webpack        项目开发的依赖</span><br><span class="line"></span><br><span class="line">npm run dev         运行脚本</span><br><span class="line"></span><br><span class="line">插件安装：</span><br><span class="line">npm i -D html-webpack-plugin  安装插件用来新建html文件</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">webpack.config.js配置文件的应用：</span><br><span class="line"></span><br><span class="line">      const HtmlWebpackPlugin=require(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line">const path=require(<span class="string">'path'</span>);</span><br><span class="line">module.exports=&#123;</span><br><span class="line">entry:<span class="string">'./src/app.js'</span>,</span><br><span class="line">output:&#123;</span><br><span class="line">path:path.resolve(__dirname,<span class="string">'dist'</span>),</span><br><span class="line">filename:<span class="string">'main.js'</span></span><br><span class="line">&#125;,</span><br><span class="line">plugins:[</span><br><span class="line">     new HtmlWebpackPlugin(&#123;</span><br><span class="line">          filename:<span class="string">"abc.html"</span>,//文件名称</span><br><span class="line">          template:<span class="string">"src/index.html"</span>  //定义模板  路径</span><br><span class="line">     &#125;)</span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>loader 就是webpack 用来预处理模块的<br>在一个模块被引入之前，会预先使用loader 处理模块的内容<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -S react react-dom  //安装react 和 react-dom</span><br><span class="line">npm i -D babel-loader babel-core  //安装babel-loader 和它所需要的库</span><br><span class="line">npm i -D babel-preset-react  //安装react 预设</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/面向对象组件开发-完整实例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -746,172 +911,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/vue-递归树形菜单/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jksen zhangxing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="半岛铁盒">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/18/vue-递归树形菜单/" itemprop="url">
-                  vue-递归树形菜单
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T22:06:45+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/18/vue-递归树形菜单/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/18/vue-递归树形菜单/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/18/vue-递归树形菜单/" class="leancloud_visitors" data-flag-title="vue-递归树形菜单">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"zh-cn"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"Content-Type"</span> content=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">    ul &#123;</span><br><span class="line">        padding: <span class="number">0</span>;</span><br><span class="line">        margin: <span class="number">0</span>;</span><br><span class="line">        list-style: none;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-menu &#123;</span><br><span class="line">        width: <span class="number">360</span>px;</span><br><span class="line">        height: <span class="number">100</span>%;</span><br><span class="line">        padding: <span class="number">0</span>px <span class="number">12</span>px;</span><br><span class="line">        border-right: <span class="number">1</span>px solid <span class="comment">#e6e9f0;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-menu-comm span &#123;</span><br><span class="line">        display: block;</span><br><span class="line">        font-size: <span class="number">12</span>px;</span><br><span class="line">        position: relative;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-contro .ico &#123;</span><br><span class="line">        background-position: <span class="number">3</span>px <span class="number">-92</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-title .ico &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">-13</span>px;</span><br><span class="line">        top: <span class="number">0</span>;</span><br><span class="line">        width: <span class="number">15</span>px;</span><br><span class="line">        height: <span class="number">26</span>px;</span><br><span class="line">        background: url(./folder-tree.png) no-repeat <span class="number">4</span>px <span class="number">-43</span>px;</span><br><span class="line">        opacity: <span class="number">0.8</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-menu-comm span strong &#123;</span><br><span class="line">        display: block;</span><br><span class="line">        width: <span class="number">82</span>%;</span><br><span class="line">        position: relative;</span><br><span class="line">        line-height: <span class="number">22</span>px;</span><br><span class="line">        padding: <span class="number">2</span>px <span class="number">0</span>;</span><br><span class="line">        padding-left: <span class="number">5</span>px;</span><br><span class="line">        color: <span class="comment">#161719;</span></span><br><span class="line">        font-weight: normal;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-nav &#123;</span><br><span class="line">        background: <span class="comment">#e7f2fe;</span></span><br><span class="line">        border: <span class="number">1</span>px solid <span class="comment">#bfdaf4;</span></span><br><span class="line">        padding-left: <span class="number">14</span>px;</span><br><span class="line">        margin-left: <span class="number">0</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .tree-title &#123;</span><br><span class="line">        border: <span class="number">1</span>px solid <span class="comment">#fff;</span></span><br><span class="line">        margin-top: <span class="number">1</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    /*无箭头*/</span><br><span class="line">    </span><br><span class="line">    .tree-contro-none .ico &#123;</span><br><span class="line">        background-position: <span class="number">-999</span>px <span class="number">-99</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    /*箭头朝下*/</span><br><span class="line">    </span><br><span class="line">    .tree-contro .ico &#123;</span><br><span class="line">        background-position: <span class="number">3</span>px <span class="number">-92</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script src="../vue.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;!-- &lt;div class="tree-menu-comm tree-menu"&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li&gt;</span><br><span class="line">                    &lt;div class="tree-title" style="padding-left: 16px;"&gt;&lt;span&gt;&lt;strong&gt;目录&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;ul&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                            &lt;div class="tree-title" style="padding-left: 32px;"&gt;&lt;span&gt;&lt;strong&gt;我的音乐&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                            &lt;ul&gt;</span><br><span class="line">                                &lt;li&gt;</span><br><span class="line">                                    &lt;div class="tree-title" style="padding-left: 48px;"&gt;&lt;span&gt;&lt;strong&gt;周杰伦&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                                    &lt;ul&gt;</span><br><span class="line">                                        &lt;li&gt;</span><br><span class="line">                                            &lt;div class="tree-title tree-contro-none" style="padding-left: 64px;"&gt;&lt;span&gt;&lt;strong&gt;发如雪&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                                            </span><br><span class="line">                                        &lt;/li&gt;</span><br><span class="line">                                    &lt;/ul&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                                &lt;li&gt;</span><br><span class="line">                                    &lt;div class="tree-title" style="padding-left: 48px;"&gt;&lt;span&gt;&lt;strong&gt;王杰&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                                    &lt;ul&gt;</span><br><span class="line">                                        &lt;li&gt;</span><br><span class="line">                                            &lt;div class="tree-title tree-contro-none" style="padding-left: 64px;"&gt;&lt;span&gt;&lt;strong&gt;一场游戏一场梦&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                                            </span><br><span class="line">                                        &lt;/li&gt;</span><br><span class="line">                                    &lt;/ul&gt;</span><br><span class="line">                                &lt;/li&gt;</span><br><span class="line">                            &lt;/ul&gt;</span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                        &lt;li&gt;</span><br><span class="line">                            &lt;div class="tree-title tree-contro-none" style="padding-left: 32px;"&gt;&lt;span&gt;&lt;strong&gt;我的照片&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                            </span><br><span class="line">                        &lt;/li&gt;</span><br><span class="line">                    &lt;/ul&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/div&gt; --&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;m-tree :data="treeList"&gt;&lt;/m-tree&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    /*</span><br><span class="line">    				传入的数据结构：</span><br><span class="line">    					[</span><br><span class="line">    					&#123;</span><br><span class="line">    						title:XXX,</span><br><span class="line">    						children:[</span><br><span class="line">    							&#123;</span><br><span class="line">    								title:XXXX,</span><br><span class="line">    								chidren:[]</span><br><span class="line">    							&#125;</span><br><span class="line">    						]</span><br><span class="line">    					&#125;]</span><br><span class="line"></span><br><span class="line">    				设置的props：</span><br><span class="line">    					data 数据结构 默认为 []</span><br><span class="line"></span><br><span class="line">    				定制模板:</span><br><span class="line">    					不可定制</span><br><span class="line"></span><br><span class="line">    				监控状态变化：</span><br><span class="line">    					事件名on-select-change 点击树节点触发</span><br><span class="line">    			*/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Vue.component(<span class="string">'m-tree-list'</span>,&#123;</span><br><span class="line">        computed:&#123;</span><br><span class="line">            count()&#123;</span><br><span class="line">               var c = this.increment;</span><br><span class="line">               <span class="keyword">return</span> ++c; </span><br><span class="line">            &#125;,</span><br><span class="line">            stylePadding()&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    <span class="string">'padding-left'</span>:this.count * <span class="number">16</span> + <span class="string">'px'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        props:&#123;</span><br><span class="line">            data:&#123;</span><br><span class="line">                type:Array,</span><br><span class="line">                default:[]</span><br><span class="line">            &#125;,</span><br><span class="line">            increment:&#123;</span><br><span class="line">                type:Number,</span><br><span class="line">                default:<span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        template:`</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li v-<span class="keyword">for</span>=<span class="string">"item of data"</span>&gt;</span><br><span class="line">                    &lt;div class="tree-title" :style="[stylePadding]"&gt;</span><br><span class="line">                        &lt;span&gt;&lt;strong&gt;&#123;&#123;item.title&#125;&#125;&lt;/strong&gt; &lt;i class="ico"&gt;&lt;/i&gt;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;!--如果循环的item有children属性，那么生成下一级--&gt;</span><br><span class="line">                    &lt;m-tree-list </span><br><span class="line">                        :increment=<span class="string">"count"</span></span><br><span class="line">                        v-<span class="keyword">if</span>=<span class="string">'item.chidren'</span> </span><br><span class="line">                        :data=<span class="string">"item.chidren"</span></span><br><span class="line">                    &gt;&lt;/m-tree-list&gt;</span><br><span class="line">                &lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        `</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    Vue.component(<span class="string">'m-tree'</span>,&#123;</span><br><span class="line">        props:&#123;</span><br><span class="line">            data:&#123;</span><br><span class="line">                type:Array,</span><br><span class="line">                default:[]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        template:`</span><br><span class="line">        &lt;div class="tree-menu-comm tree-menu"&gt;</span><br><span class="line">            &lt;m-tree-list :data="data"&gt;&lt;/m-tree-list&gt;    </span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        `</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    var data = [&#123;</span><br><span class="line">        title: <span class="string">"目录"</span>,</span><br><span class="line">        chidren: [&#123;</span><br><span class="line">            title: <span class="string">"我的音乐"</span>,</span><br><span class="line">            chidren: [&#123;</span><br><span class="line">                title: <span class="string">"周杰伦"</span>,</span><br><span class="line">                chidren: [&#123;</span><br><span class="line">                    title: <span class="string">"发如雪"</span></span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                title: <span class="string">"王杰"</span>,</span><br><span class="line">                chidren: [&#123;</span><br><span class="line">                    title: <span class="string">"一场游戏一场梦"</span></span><br><span class="line">                &#125;]</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            title: <span class="string">"我的照片"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    new Vue(&#123;</span><br><span class="line">        el:<span class="string">"#app"</span>,</span><br><span class="line">        data:&#123;</span><br><span class="line">            treeList:data</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -953,7 +957,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -971,7 +975,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

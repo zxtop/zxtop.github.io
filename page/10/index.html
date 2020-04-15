@@ -273,6 +273,208 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/git笔记-多人协作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jksen zhangxing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半岛铁盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/03/git笔记-多人协作/" itemprop="url">
+                  git笔记---多人协作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T09:52:11+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/03/git笔记-多人协作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/03/git笔记-多人协作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/03/git笔记-多人协作/" class="leancloud_visitors" data-flag-title="git笔记---多人协作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。<br>要查看远程库的信息，用git remote：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure></p>
+<p>或者，用git remote -v显示更详细的信息：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (fetch)</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (push)</span><br></pre></td></tr></table></figure></p>
+<p>上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址。<br>推送分支推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>如果要推送其他分支，比如dev，就改成：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br></pre></td></tr></table></figure></p>
+<p>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<pre><code>* master分支是主分支，因此要时刻与远程同步；
+
+* dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+
+* bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+
+* feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+</code></pre><p>总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！<br>抓取分支多人协作时，大家都会往master和dev分支上推送各自的修改。<br>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:michaelliao/learngit.git</span><br><span class="line">Cloning into <span class="string">'learngit'</span>...</span><br><span class="line">remote: Counting objects: <span class="number">46</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">26</span>/<span class="number">26</span>), done.</span><br><span class="line">remote: Total <span class="number">46</span> (delta <span class="number">16</span>), reused <span class="number">45</span> (delta <span class="number">15</span>)</span><br><span class="line">Receiving objects: <span class="number">100</span>% (<span class="number">46</span>/<span class="number">46</span>), <span class="number">15.69</span> KiB | <span class="number">6</span> KiB/s, done.</span><br><span class="line">Resolving deltas: <span class="number">100</span>% (<span class="number">16</span>/<span class="number">16</span>), done.</span><br></pre></td></tr></table></figure></p>
+<p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的master分支。不信可以用git branch命令看看：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure></p>
+<p>现在，你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure></p>
+<p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"add /usr/bin/env"</span></span><br><span class="line">[dev <span class="number">291</span>bea8] add /usr/bin/env</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br><span class="line">$ git push origin dev</span><br><span class="line">Counting objects: <span class="number">5</span>, done.</span><br><span class="line">Delta compression using up to <span class="number">4</span> threads.</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">2</span>/<span class="number">2</span>), done.</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), <span class="number">349</span> bytes, done.</span><br><span class="line">Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">To git@github.com:michaelliao/learngit.git</span><br><span class="line">   fc38031..291bea8  dev -&gt; dev</span><br></pre></td></tr></table></figure></p>
+<p>你的小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git add hello.py </span><br><span class="line">$ git commit -m <span class="string">"add coding: utf-8"</span></span><br><span class="line">[dev bd6ae48] add coding: utf<span class="number">-8</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+)</span><br><span class="line">$ git push origin dev</span><br><span class="line">To git@github.com:michaelliao/learngit.git</span><br><span class="line"> ! [rejected]        dev -&gt; dev (non-fast-forward)</span><br><span class="line">error: failed to push some refs to <span class="string">'git@github.com:michaelliao/learngit.git'</span></span><br><span class="line">hint: Updates were rejected because the tip of your current branch <span class="keyword">is</span> behind</span><br><span class="line">hint: its remote counterpart. Merge the remote changes (e.g. <span class="string">'git pull'</span>)</span><br><span class="line">hint: before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure></p>
+<p>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">remote: Counting objects: <span class="number">5</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">2</span>/<span class="number">2</span>), done.</span><br><span class="line">remote: Total <span class="number">3</span> (delta <span class="number">0</span>), reused <span class="number">3</span> (delta <span class="number">0</span>)</span><br><span class="line">Unpacking objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">From github.com:michaelliao/learngit</span><br><span class="line">   fc38031..291bea8  dev        -&gt; origin/dev</span><br><span class="line">There <span class="keyword">is</span> no tracking information <span class="keyword">for</span> the current branch.</span><br><span class="line">Please specify which branch you want to merge <span class="keyword">with</span>.</span><br><span class="line">See git-pull(<span class="number">1</span>) <span class="keyword">for</span> details</span><br><span class="line"></span><br><span class="line">    git pull &lt;remote&gt; &lt;branch&gt;</span><br><span class="line"></span><br><span class="line">If you wish to set tracking information <span class="keyword">for</span> this branch you can do so <span class="keyword">with</span>:</span><br><span class="line"></span><br><span class="line">    git branch --set-upstream dev origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure></p>
+<p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch --set-upstream dev origin/dev</span><br><span class="line">Branch dev set up to track remote branch dev <span class="keyword">from</span> origin.</span><br></pre></td></tr></table></figure></p>
+<p>再pull：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">Auto-merging hello.py</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> hello.py</span><br><span class="line">Automatic merge failed; fix conflicts <span class="keyword">and</span> then commit the result.</span><br></pre></td></tr></table></figure></p>
+<p>这回git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"merge &amp; fix hello.py"</span></span><br><span class="line">[dev adca45d] merge &amp; fix hello.py</span><br><span class="line">$ git push origin dev</span><br><span class="line">Counting objects: <span class="number">10</span>, done.</span><br><span class="line">Delta compression using up to <span class="number">4</span> threads.</span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">5</span>/<span class="number">5</span>), done.</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">6</span>/<span class="number">6</span>), <span class="number">747</span> bytes, done.</span><br><span class="line">Total <span class="number">6</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">To git@github.com:michaelliao/learngit.git</span><br><span class="line">   291bea8..adca45d  dev -&gt; dev</span><br></pre></td></tr></table></figure></p>
+<p>因此，多人协作的工作模式通常是这样：</p>
+<pre><code>1. 首先，可以试图用git push origin branch-name推送自己的修改；
+
+2. 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+3. 如果合并有冲突，则解决冲突，并在本地提交；
+
+4. 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+</code></pre><p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream branch-name origin/branch-name。<br>这就是多人协作的工作模式，一旦熟悉了，就非常简单。<br>小结</p>
+<pre><code>* 查看远程库信息，使用git remote -v；
+
+* 本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+* 从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+* 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+* 建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+* 
+</code></pre><p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/git笔记-创建标签/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,182 +983,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/git笔记-bug分支/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jksen zhangxing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="半岛铁盒">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/03/git笔记-bug分支/" itemprop="url">
-                  git笔记--bug分支
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T09:43:09+08:00">
-                2017-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习/" itemprop="url" rel="index">
-                    <span itemprop="name">学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/03/git笔记-bug分支/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/03/git笔记-bug分支/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/06/03/git笔记-bug分支/" class="leancloud_visitors" data-flag-title="git笔记--bug分支">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。<br>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line"><span class="comment"># On branch dev# Changes to be committed:#   (use "git reset HEAD &lt;file&gt;..." to unstage)##       new file:   hello.py## Changes not staged for commit:#   (use "git add &lt;file&gt;..." to update what will be committed)#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)##       modified:   readme.txt#</span></span><br></pre></td></tr></table></figure></p>
-<p>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？<br>幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash</span><br><span class="line">Saved working directory <span class="keyword">and</span> index state WIP on dev: <span class="number">6224937</span> add merge</span><br><span class="line">HEAD <span class="keyword">is</span> now at <span class="number">6224937</span> add merge</span><br></pre></td></tr></table></figure></p>
-<p>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。<br>首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span>Your branch <span class="keyword">is</span> ahead of <span class="string">'origin/master'</span> by <span class="number">6</span> commits.</span><br><span class="line">$ git checkout -b issue<span class="number">-101</span>Switched to a new branch <span class="string">'issue-101'</span></span><br><span class="line">现在修复bug，需要把“Git <span class="keyword">is</span> free software ...”改为“Git <span class="keyword">is</span> a free software ...”，然后提交：</span><br><span class="line">$ git add readme.txt </span><br><span class="line">$ git commit -m <span class="string">"fix bug 101"</span></span><br><span class="line">[issue<span class="number">-101</span> cc17032] fix bug <span class="number">101</span></span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br></pre></td></tr></table></figure></p>
-<p>修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span>Your branch <span class="keyword">is</span> ahead of <span class="string">'origin/master'</span> by <span class="number">2</span> commits.</span><br><span class="line">$ git merge --no-ff -m <span class="string">"merged bug fix 101"</span> issue<span class="number">-101</span>Merge made by the <span class="string">'recursive'</span> strategy.</span><br><span class="line"> readme.txt |    <span class="number">2</span> +-</span><br><span class="line"> <span class="number">1</span> file changed, <span class="number">1</span> insertion(+), <span class="number">1</span> deletion(-)</span><br><span class="line">$ git branch -d issue<span class="number">-101</span>Deleted branch issue<span class="number">-101</span> (was cc17032).</span><br></pre></td></tr></table></figure></p>
-<p>太棒了，原计划两个小时的bug修复只花了5分钟！现在，是时候接着回到dev分支干活了！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br><span class="line">Switched to branch <span class="string">'dev'</span>$ git status</span><br><span class="line"><span class="comment"># On branch dev</span></span><br><span class="line">nothing to commit (working directory clean)</span><br></pre></td></tr></table></figure></p>
-<p>工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash list</span><br><span class="line">stash@&#123;<span class="number">0</span>&#125;: WIP on dev: <span class="number">6224937</span> add merge</span><br></pre></td></tr></table></figure></p>
-<p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：<br>一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；<br>另一种方式是用git stash pop，恢复的同时把stash内容也删了：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop</span><br><span class="line"><span class="comment"># On branch dev# Changes to be committed:#   (use "git reset HEAD &lt;file&gt;..." to unstage)##       new file:   hello.py## Changes not staged for commit:#   (use "git add &lt;file&gt;..." to update what will be committed)#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)##       modified:   readme.txt#Dropped refs/stash@&#123;0&#125; (f624f8e5f082f2df2bed8a4e09c12fd2943bdd40)</span></span><br></pre></td></tr></table></figure></p>
-<p>再用git stash list查看，就看不到任何stash内容了：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash list</span><br></pre></td></tr></table></figure></p>
-<p>你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash apply stash@&#123;<span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>小结修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
-<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -998,7 +1029,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1016,7 +1047,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

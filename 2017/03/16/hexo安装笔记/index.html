@@ -98,7 +98,7 @@
 <meta property="og:description" content="hexo 安装笔记@(笔记记录)[hexo|帮助|Markdown|hexo主题|window] 记录中 …..  hexo简介  A fast, simple &amp;amp; powerful blog framework。    —— 维基百科  憋说话看官网链接帮助 代码块1npm install hexo-cli -g 常用命令总结1234567hexo init [folder] # 初始化">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/03/16/hexo安装笔记/hexo安装笔记.md">
-<meta property="og:updated_time" content="2017-03-17T05:21:26.000Z">
+<meta property="og:updated_time" content="2020-04-15T14:32:21.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo安装笔记">
 <meta name="twitter:description" content="hexo 安装笔记@(笔记记录)[hexo|帮助|Markdown|hexo主题|window] 记录中 …..  hexo简介  A fast, simple &amp;amp; powerful blog framework。    —— 维基百科  憋说话看官网链接帮助 代码块1npm install hexo-cli -g 常用命令总结1234567hexo init [folder] # 初始化">
@@ -404,6 +404,38 @@
 <h3 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h3><p>打开新建的文章\source_posts\postName.md，其中postName是hexo new “title”中的title<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"title"</span>  <span class="comment"># 生成新文章：\source\_posts\title.md</span></span><br><span class="line">hexo new page <span class="string">"title"</span>  <span class="comment"># 生成新的页面，后面可在主题配置文件中配置页面</span></span><br></pre></td></tr></table></figure></p>
 <p>生成文章或页面的模板放在博客文件夹根目录下的 scaffolds/ 文<img src="/2017/03/16/hexo安装笔记/./hexo安装笔记.md" alt="Alt text"><br>件夹里面，文章对应的是 post.md ，页面对应的是page.md，草稿的是draft.md</p>
 <h3 id="编辑文章"><a href="#编辑文章" class="headerlink" title="编辑文章"></a>编辑文章</h3><p>打开新建的文章\source_posts\postName.md，其中postName是hexo new “title”中的title<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder] <span class="comment"># 初始化一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站</span></span><br><span class="line">hexo new [layout] &lt;title&gt; <span class="comment"># 新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来</span></span><br><span class="line">hexo version <span class="comment"># 查看版本</span></span><br><span class="line">hexo clean <span class="comment"># 清除缓存文件 (db.json) 和已生成的静态文件 (public)</span></span><br><span class="line">hexo g <span class="comment"># 等于hexo generate # 生成静态文件</span></span><br><span class="line">hexo s <span class="comment"># 等于hexo server # 本地预览</span></span><br><span class="line">hexo d <span class="comment"># 等于hexo deploy # 部署，可与hexo g合并为 hexo d -g</span></span><br></pre></td></tr></table></figure></p>
+<p>创建新文章<br>根目录命令行输入hexo new &lt;模板&gt; &lt;文章名&gt;新建文章</p>
+<p>其中&lt;模板&gt;在scaffolds中，默认情况下有三个模板post、draft、page</p>
+<p>参数    功能    路径<br>post    新建文章    /source/_posts/<br>draft    新建草稿    /source/_drafts/<br>page    新建页面（标签页，分类页等）    /source/<br>通常情况下使用hexo new post <title>即可，注意这里的title不是文章名，具体文章中显示的文章标题可以在文章文件中修改，例如：我这里新建一篇文章，title为article</title></p>
+<p>命令行输入hexo new post article</p>
+<p>此时在source/_posts/文件夹中多了一个article.md文件。打开可以看到如下内容：</p>
+<p>[图片上传失败…(image-3f21de-1544088714291)]</p>
+<p>文章内容中两条—之间的内容为文章的配置内容，可以在其中设置标签、分类等。其中的title为文章发布后文章页面显示的标题，例如我们修改一下tittle为：Hexo博客文章发布</p>
+<p>而.md文件的名字，也就是我们新建文章时输入的名字，是作为文章页面链接中显示的名字，例如，本篇文章的文件名为：article.md，文章内设置的文章标题为Hexo博客新建文章并发布，那么本篇文章的链接就是<a href="https://www.lixint.me/article.html" target="_blank" rel="noopener">https://www.lixint.me/article.html</a></p>
+<p>文章模板<br>在新建文章中使用的post参数，就是模板的名称，在使用hexo new post &lt;文件名&gt;命令进行新建文章时，系统会自动在scaffolds文件夹中搜寻名为post的文件，根据其中的内容生成新的.md文章文件。后续随着配置项的增多，可以自行设置不同类型的模板。例如本篇文章的模板如下：</p>
+<p>[图片上传失败…(image-55e677-1544088714292)]</p>
+<p>其中的title跟data会在生成文件时自动填写。利用此模板生成的文章文件，只需要进行对应项目的填写即可。例如本篇文章的配置信息如下：</p>
+<p>[图片上传失败…(image-5cf46e-1544088714292)]</p>
+<p>给文章添加分类和模板<br>通过对文件头部配置信息中tags 与categories项的修改可以设置文章的标签及分类。</p>
+<p>其中标签可以按格式贴现设置多个：</p>
+<p>title: Hexo博客新建文章并发布<br>date: 2018-12-06 12:16:12<br>tags:</p>
+<ul>
+<li>Hexo</li>
+<li>Markdown<br>categories: 搭建博客<br>在博文中添加图片<br>目前有三种方法像博文中添加图片：</li>
+</ul>
+<p>方法一<br>命令行输入npm install hexo-asset-image –save安装插件</p>
+<p>在根目录/source目录下新建一个img文件夹，将需要插入的图片放到里面</p>
+<p>在文章中引用图片时图片使用格式[图片上传失败…(image-3a4109-1544088714292)]进行引用图片。</p>
+<p>方法二<br>在<a style="color:#9900ff"><strong>博客配置文件</strong></a>中搜索post_asset_folder项，设置为true</p>
+<p>[图片上传失败…(image-1a1aa7-1544088714292)]</p>
+<p>这样在创建文章时会自动在文章.md所在目录/source/_posts文件夹内生成一个与文章同名的文件夹。例如新建文章hexo new post example则会生成一个example.md文件与一个名为example的文件夹。</p>
+<p>把example这个博文需要展示的图片放在example文件夹目录下；</p>
+<p>文章内使用[% asset_img slug [title] %]（将方括号][替换为花括号}{）的格式进行插入图片，例如我要插入一个名为1.jpg的图片，写文章时就应该填写</p>
+<p> <code>[% asset_img 1.jpg 图片1 %]</code><br>方法三<br>前两种方法尽管在上传时很方便，但是在插入图片时并不是很方便，现在很多Markdown编辑器在插入图片是非常方便，截图直接粘贴、现有的图片文件直接拖入都可以实现插入图片，而不是使用代码进行插入。</p>
+<p>但是这样插入的图片在上传时并不会被上传，这样就导致了博客中文章图片的连接还是本地路径的格式。</p>
+<p>于是博主自己写了一个Python脚本，在文章完成后上传前，通过脚本自动将文章中的图片上传至腾讯云对象存储（腾讯云每个月都有一定的免费额度）或者SMMS图床，文章中图片链接替换。这样既不会占用Github Pages空间，又能方便地插入图片。<br>对于脚本的使用，可以到==&gt;Hexo博文图片自动上传腾讯云、SMMS图床并替换博文内图片链接&lt;==查看</p>
+<p>2人点赞<br>日记本</p>
+<p>作者：LixT<br>链接：<a href="https://www.jianshu.com/p/cd623d82c00a" target="_blank" rel="noopener">https://www.jianshu.com/p/cd623d82c00a</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
       
     </div>
@@ -528,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -546,7 +578,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

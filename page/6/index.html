@@ -273,6 +273,224 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/vue-axios-实现数据请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jksen zhangxing">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="半岛铁盒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/12/10/vue-axios-实现数据请求/" itemprop="url">
+                  vue-axios 实现数据请求
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T16:35:17+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/10/vue-axios-实现数据请求/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/10/vue-axios-实现数据请求/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/10/vue-axios-实现数据请求/" class="leancloud_visitors" data-flag-title="vue-axios 实现数据请求">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>vue-resource不再更新
+我们来看看作者给出的解释，原话如下：
+
+最近团队讨论了一下，Ajax 本身跟 Vue 并没有什么需要特别整合的地方，
+使用 fetchpolyfill 或是 axios、superagent 等等都可以起到同等的效果，
+vue-resource 提供的价值和其维护成本相比并不划算，所以决定在不久以后取消对 vue-resource 的官方推荐。
+已有的用户可以继续使用， 但以后不再把 vue-resource 作为官方的 ajax 方案。这里可以去掉 vue-resource，
+文档也不必翻译了。
+
+一起学习axios
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+get请求
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/detail?id=10'</span>).then(function (res) &#123;</span><br><span class="line">    //成功获取数据</span><br><span class="line">   console.log(res);</span><br><span class="line"> &#125;).catch(function (err) &#123;</span><br><span class="line">    //请求错误</span><br><span class="line">   console.log(err);</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+
+ 使用过jquery的ajax方案的同学，学习axios应该没有任何难度。get请求也可以通过 params 对象传递参数。写法如下：
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/detail'</span>, &#123;</span><br><span class="line">   //参数</span><br><span class="line">  params: &#123;</span><br><span class="line">       id: <span class="number">10</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;).then(function (res) &#123;</span><br><span class="line">   //成功获取数据</span><br><span class="line">   console.log(res);</span><br><span class="line">&#125;).catch(function (err) &#123;</span><br><span class="line">   //请求错误</span><br><span class="line">   console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>相比第一种写法，这种写法的可读性更高，在接口后增加一个对象参数，其中一个属性为params，它的值就是我们要传递的参数id:10。
+
+post请求
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//执行post请求</span><br><span class="line">axios.post(<span class="string">'/add'</span>, &#123;</span><br><span class="line">   name: <span class="string">'前端君'</span>,</span><br><span class="line">   age: <span class="number">26</span></span><br><span class="line">&#125;).then(function (res) &#123;</span><br><span class="line">   //请求成功</span><br><span class="line"> console.log(res);</span><br><span class="line">&#125;).catch(function (err) &#123;</span><br><span class="line">   //请求失败</span><br><span class="line"> console.log(err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code>多个请求并发
+
+除了最常用的get请求和post请求以外，值得一提的是axios提供了一次性并发多个请求的API，使用方法如下：
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function getProfile()&#123;</span><br><span class="line">   //请求<span class="number">1</span></span><br><span class="line">   <span class="keyword">return</span> axios.get(<span class="string">'/profile'</span>);</span><br><span class="line">&#125;</span><br><span class="line">function getUser()&#123;</span><br><span class="line">   //请求<span class="number">2</span></span><br><span class="line">   <span class="keyword">return</span> axios.get(<span class="string">'/user'</span>);</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">//并发请求</span><br><span class="line">axios.all([</span><br><span class="line">   getProfile(),</span><br><span class="line">   getUser()</span><br><span class="line">]).then(axios.spread((res1, res2)=&gt;&#123;</span><br><span class="line">   //两个请求现已完成</span><br><span class="line">  console.log(res1);</span><br><span class="line">   console.log(res2);</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<pre><code> 我们事先定义了两个方法  getProfile()  和  getUser()  帮我们实现get请求。
+
+在某个业务场景中，我们需要同时产生以上两个get请求，并需要等待它们都请求完毕后再做逻辑处理，
+你也许会想到回调嵌套，但现在你可以使用axios的并发请求API: axios.all() 
+
+当这两个请求都完成的时候会触发 axios.spread() 函数，res1和res2两个参数分别代表返回的结果，相当实用的API。
+
+其实上面我们刚刚讲到的 axios.get()  和  axios.post() 写法是axios给我们提供网络请求的一种别名方式
+，如果你不喜欢这种写法，完成可以自己通过配置请求参数，实现你想要的请求效果。
+
+
+
+举个栗子，对比一下。
+
+手动配置参数，实现一个post请求：
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 发送一个 POST 请求</span><br><span class="line">axios(&#123;</span><br><span class="line">   method: <span class="string">'post'</span>,</span><br><span class="line">   url: <span class="string">'/user'</span>,</span><br><span class="line">   data: &#123;</span><br><span class="line">       name: <span class="string">'前端君'</span>,</span><br><span class="line">   &#125;</span><br><span class="line">&#125;);</span><br><span class="line">使用post别名写法，实现一个post请求：</span><br><span class="line">//发送一个 POST 请求</span><br><span class="line">axios.post(<span class="string">'/user'</span>, &#123;</span><br><span class="line">    name: <span class="string">'前端君'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code>两种写法均可，大家可以根据自己的喜好和习惯，任选一种。
+
+别名写法是为了大家方便地阅读和编写代码，除了 axios.get() 和 axios.post() ，axios还为所有支持的请求方式提供了别名。
+
+axios.request()
+axios.delete( )
+axios.head( )
+axios.put( )
+axios.patch( )
+
+这些别名用法大同小异，大家需要用到的时候，可以查看axios的API文档，也十分简单。
+
+除了以上常用的API以外，axios还提供了其他API，允许开发者配置默认值，拦截器，处理错误和消除请求等操作，
+十分简单易用，在这里就不一一展开讲述了。
+
+
+----摘自前端君教程
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/vue-简单计算器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -809,171 +1027,11 @@ Vuex采用类似全局对象的形式来管理所有组件的公用数据，如�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/vue-router-应用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jksen zhangxing">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="半岛铁盒">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/10/vue-router-应用/" itemprop="url">
-                  vue-router 应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T16:26:39+08:00">
-                2017-12-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/10/vue-router-应用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/10/vue-router-应用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/10/vue-router-应用/" class="leancloud_visitors" data-flag-title="vue-router 应用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.9/vue.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src="https://unpkg.com/vue-router@2.5.3/dist/vue-router.js"&gt;&lt;/script&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        <span class="comment">#app&#123;width: 1000px;height: 800px;box-shadow: 2px 2px 10px #ccc;margin: 0 auto&#125;</span></span><br><span class="line">        .nav&#123;width: <span class="number">500</span>px;height: <span class="number">300</span>px;border:<span class="number">1</span>px solid <span class="comment">#efefef;box-shadow: 0px 0px 10px #ccc;float: left;&#125;</span></span><br><span class="line">        .nav a&#123;width: <span class="number">100</span>%;line-height: <span class="number">60</span>px;border-bottom: <span class="number">1</span>px solid <span class="comment">#efefef;display: block;text-align: center;&#125;</span></span><br><span class="line">        .content&#123;width: <span class="number">400</span>px;height:<span class="number">200</span>px;float: right;line-height: <span class="number">200</span>px;text-align: center;color: <span class="comment">#333;&#125;</span></span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">        &lt;div class="nav"&gt;</span><br><span class="line">            &lt;!-- &lt;a&gt;简单的vue&lt;/a&gt;</span><br><span class="line">            &lt;a&gt;这是es6&lt;/a&gt;</span><br><span class="line">            &lt;a&gt;这是webpack&lt;/a&gt; --&gt;</span><br><span class="line">                &lt;router-link to="/vue"&gt;vue&lt;/router-link&gt;</span><br><span class="line">                &lt;router-link to="/es6"&gt;es6&lt;/router-link&gt;</span><br><span class="line">                &lt;router-link to="/webpack"&gt;webpack&lt;/router-link&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class="content"&gt;</span><br><span class="line">                &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    const vueComponent = &#123;</span><br><span class="line">        template:`&lt;div&gt;</span><br><span class="line">                    这里是《简易vue》教程</span><br><span class="line">                  &lt;/div&gt;`</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><br><span class="line">      //<span class="number">2.</span>趣味ES6 对应的视图组件</span><br><span class="line">      const es6Component = &#123;</span><br><span class="line">        template:`&lt;div&gt;</span><br><span class="line">                    这里是《趣味ES6》教程</span><br><span class="line">                  &lt;/div&gt;`</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><br><span class="line">      //<span class="number">3.</span>人在职场 对应的视图组件</span><br><span class="line">      const careerComponent = &#123;</span><br><span class="line">        template:`&lt;div&gt;</span><br><span class="line">                    《混口饭吃》与《工资待遇》</span><br><span class="line">                  &lt;/div&gt;`</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">       // 创建router实例，定义导航和组件之间的映射关系</span><br><span class="line">       const router = new VueRouter(&#123;</span><br><span class="line">        routes:[</span><br><span class="line">        &#123;</span><br><span class="line">                        path:<span class="string">"/vue"</span>,</span><br><span class="line">                        component:vueComponent</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                                    path:<span class="string">"/es6"</span>,</span><br><span class="line">                                    component:es6Component</span><br><span class="line">                                &#125;,</span><br><span class="line">                                &#123;</span><br><span class="line">                                                path:<span class="string">"/webpack"</span>,</span><br><span class="line">                                             component:careerComponent</span><br><span class="line">                                             &#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        let app=new Vue(&#123;</span><br><span class="line">            el:<span class="string">"#app"</span>,</span><br><span class="line">            router</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1015,7 +1073,7 @@ Vuex采用类似全局对象的形式来管理所有组件的公用数据，如�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1033,7 +1091,7 @@ Vuex采用类似全局对象的形式来管理所有组件的公用数据，如�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
