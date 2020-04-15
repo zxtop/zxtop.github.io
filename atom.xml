@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-26T13:26:40.000Z</updated>
+  <updated>2020-04-15T14:15:22.590Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,24 @@
     <link href="http://yoursite.com/2017/12/26/canvas/"/>
     <id>http://yoursite.com/2017/12/26/canvas/</id>
     <published>2017-12-26T13:26:38.000Z</published>
-    <updated>2017-12-26T13:26:40.000Z</updated>
+    <updated>2020-04-15T14:15:22.590Z</updated>
+    
+    <content type="html"><![CDATA[<p>Canvas 通过Javascript 来绘制 2D 图形。Canvas 是逐像素进行渲染的。在 Canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。</p><p>SVG 是一种使用 XML 描述 2D 图形的语言。SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。你可以为某个元素附加 JavaScript 事件处理器。在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。</p><p>Canvas和SVG相比，canvas更依赖于分辨率，不支持事件处理器，文本渲染能力弱，比较适合密集型游戏，其中的许多对象会被频繁绘制，而svg则比较适用于类似谷歌地图带有大型渲染区域的应用程序。</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;Canvas 通过Javascript 来绘制 2D 图形。Canvas 是逐像素进行渲染的。在 Canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。&lt;/p&gt;
+&lt;p&gt;SVG 是一
+      
+    
     </summary>
     
+      <category term="整合" scheme="http://yoursite.com/categories/%E6%95%B4%E5%90%88/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
