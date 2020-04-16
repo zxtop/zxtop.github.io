@@ -92,7 +92,7 @@
 <meta name="description" content="酝酿中....">
 <meta property="og:type" content="website">
 <meta property="og:title" content="半岛铁盒">
-<meta property="og:url" content="http://yoursite.com/categories/vue/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/Vue/index.html">
 <meta property="og:site_name" content="半岛铁盒">
 <meta property="og:description" content="酝酿中....">
 <meta property="og:locale" content="zh-Hans">
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/vue/">
+  <link rel="canonical" href="http://yoursite.com/categories/Vue/">
 
 
 
 
 
-  <title> 分类: vue | 半岛铁盒 </title>
+  <title> 分类: Vue | 半岛铁盒 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +264,7 @@
   <section id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2>
-        vue
+        Vue
         <small>分类</small>
       </h2>
     </div>
@@ -277,17 +277,17 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/12/19/webpack使用总结2/" itemprop="url">
+            <a class="post-title-link" href="/2017/12/18/vue-递归树形菜单/" itemprop="url">
               
-                <span itemprop="name">webpack使用总结2</span>
+                <span itemprop="name">vue-递归树形菜单</span>
               
             </a>
         
       </h1>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-12-19T20:48:18+08:00" content="2017-12-19">
-          12-19
+        <time class="post-time" itemprop="dateCreated" datetime="2017-12-18T22:06:45+08:00" content="2017-12-18">
+          12-18
         </time>
       </div>
 
@@ -303,17 +303,17 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/12/19/webpack使用总结1/" itemprop="url">
+            <a class="post-title-link" href="/2017/12/18/vue-封装弹出框组件/" itemprop="url">
               
-                <span itemprop="name">webpack使用总结1</span>
+                <span itemprop="name">vue-封装弹出框组件</span>
               
             </a>
         
       </h1>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-12-19T20:39:10+08:00" content="2017-12-19">
-          12-19
+        <time class="post-time" itemprop="dateCreated" datetime="2017-12-18T21:58:14+08:00" content="2017-12-18">
+          12-18
         </time>
       </div>
 
@@ -329,17 +329,43 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2017/12/19/命令操作符-小记/" itemprop="url">
+            <a class="post-title-link" href="/2017/12/18/vue-封装模态框组件/" itemprop="url">
               
-                <span itemprop="name">命令操作符-小记</span>
+                <span itemprop="name">vue-封装模态框组件</span>
               
             </a>
         
       </h1>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2017-12-19T20:35:47+08:00" content="2017-12-19">
-          12-19
+        <time class="post-time" itemprop="dateCreated" datetime="2017-12-18T20:58:33+08:00" content="2017-12-18">
+          12-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/12/17/vue-props验证/" itemprop="url">
+              
+                <span itemprop="name">vue-props验证</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2017-12-17T23:00:26+08:00" content="2017-12-17">
+          12-17
         </time>
       </div>
 
@@ -351,6 +377,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/categories/Vue/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Vue/page/6/">6</a><a class="extend next" rel="next" href="/categories/Vue/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           
@@ -711,49 +741,6 @@
             acl.setPublicReadAccess(true);
             acl.setPublicWriteAccess(true);
             newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-
-  
-
-</body>
-</html>
-
             /* End Set ACL */
             newcounter.set("title", title);
             newcounter.set("url", url);
